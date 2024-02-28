@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
 
     private int currentPuzzle = 1;
     private string jailDoor = "JailDoor";
+    private string gateDoor = "GateDoor";
 
     void Awake()
     {
@@ -33,6 +34,13 @@ public class LevelManager : MonoBehaviour
             Debug.Log("DoorOpened");
             currentPuzzle++;
             OnOpenDoor.Invoke(jailDoor);
+        }
+
+        if (zoneId == gateDoor)
+        {
+            Debug.Log("DoorOpened");
+            currentPuzzle++;
+            OnOpenDoor.Invoke(gateDoor);
         }
     }
 }
