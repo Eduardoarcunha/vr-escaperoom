@@ -32,22 +32,31 @@ public class PotionStand : MonoBehaviour
         whitePotion = false;
         foreach (var socketInteractor in socketInteractors)
         {
-            if (socketInteractor.selectTarget != null)
+            if (socketInteractor.hasSelection)
             {
-                GameObject selectedObject = socketInteractor.selectTarget.gameObject;
-                Debug.Log("Selected Object: " + selectedObject.name);
+                // Get the oldest interactable selected by this interactor
+                IXRSelectInteractable selectedInteractable = socketInteractor.GetOldestInteractableSelected();
 
-                if (selectedObject.GetComponent<Potion>().potionType == PotionType.Blue)
+                // Cast to XRBaseInteractable or your specific interactable type
+                XRBaseInteractable baseInteractable = selectedInteractable as XRBaseInteractable;
+
+                // Proceed if the cast is successful and we have a valid selected interactable
+                if (baseInteractable != null)
                 {
-                    bluePotion = true;
-                }
-                else if (selectedObject.GetComponent<Potion>().potionType == PotionType.Green)
-                {
-                    greenPotion = true;
-                }
-                else if (selectedObject.GetComponent<Potion>().potionType == PotionType.White)
-                {
-                    whitePotion = true;
+                    GameObject selectedObject = baseInteractable.gameObject;
+
+                    if (selectedObject.GetComponent<Potion>().potionType == PotionType.Blue)
+                    {
+                        bluePotion = true;
+                    }
+                    else if (selectedObject.GetComponent<Potion>().potionType == PotionType.Green)
+                    {
+                        greenPotion = true;
+                    }
+                    else if (selectedObject.GetComponent<Potion>().potionType == PotionType.White)
+                    {
+                        whitePotion = true;
+                    }
                 }
             }
         }
@@ -56,6 +65,7 @@ public class PotionStand : MonoBehaviour
             isDone = true;
             LevelManager.instance.ZoneTriggered(zoneId);
         }
-
     }
+
+
 }

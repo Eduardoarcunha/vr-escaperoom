@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1832208774211502428}
   - component: {fileID: 6155760992749604960}
   - component: {fileID: 7787866822644646562}
+  - component: {fileID: 431566382285677802}
   m_Layer: 0
   m_Name: Audio Affordance
   m_TagString: Untagged
@@ -219,3 +220,15 @@ MonoBehaviour:
         stateExited: {fileID: 0}
     m_Variable: {fileID: 11400000, guid: 04ac31e94f2285349bc2462884b3ee80, type: 2}
   m_AudioSource: {fileID: 6155760992749604960}
+--- !u!114 &431566382285677802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5314141359722828005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87937046dd6617f49ba50166fdcf0998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

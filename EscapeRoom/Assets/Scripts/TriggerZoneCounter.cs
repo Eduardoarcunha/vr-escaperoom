@@ -12,7 +12,6 @@ public class TriggerZoneCounter : MonoBehaviour
         if (other.CompareTag(targetTag))
         {
             count++;
-            Debug.Log("Objects in zone: " + count);
         }
     }
 
@@ -21,7 +20,6 @@ public class TriggerZoneCounter : MonoBehaviour
         if (other.CompareTag(targetTag))
         {
             count--;
-            Debug.Log("Objects in zone: " + count);
         }
     }
 

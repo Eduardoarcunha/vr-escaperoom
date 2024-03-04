@@ -12,6 +12,7 @@ public class LevelManager : MonoBehaviour
     private string jailDoor = "JailDoor";
     private string gateDoor = "GateDoor";
     private string escapeDoor = "EscapeDoor";
+    private string endZone = "EndZone";
 
     void Awake()
     {
@@ -56,6 +57,11 @@ public class LevelManager : MonoBehaviour
             OnOpenDoor.Invoke(escapeDoor);
             AudioManager.instance.PlaySound("SimpleDoorOpen");
             AudioManager.instance.PlaySound("PuzzleDone");
+        }
+
+        if (zoneId == endZone)
+        {
+            GameManager.instance.EndGame();
         }
     }
 }

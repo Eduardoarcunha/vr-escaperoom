@@ -23,9 +23,15 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 0)
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 0 ||
+            UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 1)
         {
             AudioManager.instance.PlaySound("DungeonBGM");
         }
+    }
+
+    public void EndGame()
+    {
+        SceneTransitionManager.singleton.GoToSceneAsync(0);
     }
 }
