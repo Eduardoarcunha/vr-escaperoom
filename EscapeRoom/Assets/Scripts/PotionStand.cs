@@ -53,7 +53,6 @@ public class PotionStand : MonoBehaviour
         }
         if (greenPotion && bluePotion && whitePotion && !isDone)
         {
-            Debug.Log("Correct Answer!");
             isDone = true;
             LevelManager.instance.ZoneTriggered(zoneId);
         }

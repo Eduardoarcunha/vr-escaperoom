@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
     private int currentPuzzle = 1;
     private string jailDoor = "JailDoor";
     private string gateDoor = "GateDoor";
+    private string escapeDoor = "EscapeDoor";
 
     void Awake()
     {
@@ -34,6 +35,9 @@ public class LevelManager : MonoBehaviour
             Debug.Log("DoorOpened");
             currentPuzzle++;
             OnOpenDoor.Invoke(jailDoor);
+            AudioManager.instance.PlaySound("MetalDoorOpen");
+            AudioManager.instance.PlaySound("PuzzleDone");
+
         }
 
         if (zoneId == gateDoor)
@@ -41,6 +45,17 @@ public class LevelManager : MonoBehaviour
             Debug.Log("DoorOpened");
             currentPuzzle++;
             OnOpenDoor.Invoke(gateDoor);
+            AudioManager.instance.PlaySound("SimpleDoorOpen");
+            AudioManager.instance.PlaySound("PuzzleDone");
+        }
+
+        if (zoneId == escapeDoor)
+        {
+            Debug.Log("DoorOpened");
+            currentPuzzle++;
+            OnOpenDoor.Invoke(escapeDoor);
+            AudioManager.instance.PlaySound("SimpleDoorOpen");
+            AudioManager.instance.PlaySound("PuzzleDone");
         }
     }
 }

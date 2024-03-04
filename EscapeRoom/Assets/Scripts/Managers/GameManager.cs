@@ -20,4 +20,12 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    void Start()
+    {
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            AudioManager.instance.PlaySound("DungeonBGM");
+        }
+    }
 }
